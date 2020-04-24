@@ -5,7 +5,7 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import GlobalStyles from 'utils/globalStyles';
 import theme from 'utils/theme';
 
-import { Navigation } from './components';
+import { Navigation, Wrapper } from './components';
 
 function App() {
   return (
@@ -20,12 +20,14 @@ function App() {
           ]}
         />
 
-        <Switch>
-          <Route exact path="/">
-            Homepage
-          </Route>
-          <Route path="/budget">Budget Page</Route>
-        </Switch>
+        <Wrapper>
+          <Switch>
+            <Route exact path="/">
+              Homepage
+            </Route>
+            <Route path="/budget">Budget Page</Route>
+          </Switch>
+        </Wrapper>
       </Router>
     </ThemeProvider>
   );
