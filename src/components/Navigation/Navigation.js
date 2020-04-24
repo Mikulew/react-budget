@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 import { Wrapper } from 'components';
 import {
@@ -11,8 +12,8 @@ const Navigation = ({ items }) => (
     <Wrapper>
       <NavigationList>
         {items.map(item => (
-          <li>
-            <a href="#">{item.content}</a>
+          <li key={item.to}>
+            <Link to={item.to}>{item.content}</Link>
           </li>
         ))}
       </NavigationList>
