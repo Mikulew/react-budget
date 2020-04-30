@@ -1,11 +1,13 @@
 import i18n from 'i18next';
 import { initReactI18next } from 'react-i18next';
 
-import Backend from 'i18next-http-backend';
+import { api_token, id_project } from '../config';
+
+import CustomBackend from './CustomBackend';
 import LanguageDetector from 'i18next-browser-languagedetector';
 
 i18n
-  .use(Backend)
+  .use(CustomBackend)
   .use(LanguageDetector)
   .use(initReactI18next)
   .init({
@@ -36,16 +38,16 @@ i18n
 
         const data = [{ term: key }];
         const payload = {
-          api_token: token,
+          api_token,
           data: JSON.stringify(data),
-          id,
+          id: id_project,
         };
       },
       parseLoadPayload: ({ lng }) => {
         const payload = {
-          api_token: token,
+          api_token,
           language: lng,
-          id,
+          id: id_project,
         };
 
         return payload;
